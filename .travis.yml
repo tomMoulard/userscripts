@@ -1,0 +1,21 @@
+dist: trusty
+
+env:
+  global:
+    - BUILD_FILE=userscripts.json
+
+script:
+  - make test
+  - make
+
+before_deploy:
+  - make
+
+deploy:
+  - provider: releases
+    api_key: ${GITHUB_TOKEN}
+    file: userscripts.json
+    skip_cleanup: true
+    on:
+      repo: tommoulard/userscripts
+      tags: true

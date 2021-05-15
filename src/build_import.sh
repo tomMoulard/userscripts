@@ -1,10 +1,10 @@
 #!/bin/bash
 
-FILE=./out.json
-SCRIPTS=./scripts
-OUT=./template.json
-declare -a USERSCRIPTS=($(find ${SCRIPTS} -type f -name '*.js' | sort -u))
-declare -a JSONS=($(find ${SCRIPTS} -type f -name '*.json' | sort -u))
+FILE=${BUILD_FILE:=./out.json}
+SCRIPTS=${BUILD_SCRIPTS:=./scripts}
+TEMPLATE=${BUILD_TEMPLATE:=./template.json}
+declare -a USERSCRIPTS=($(find "${SCRIPTS}" -type f -name '*.js' | sort -u))
+declare -a JSONS=($(find "${SCRIPTS}" -type f -name '*.json' | sort -u))
 
 # Get and fill each json with corresponding js code
 declare -a OUT_JSON=()
@@ -20,4 +20,4 @@ done
 OUT_STR+="${OUT_JSON[-1]}"
 
 # Exporting to file
-sed "s~{{ SCRIPTS }}~${OUT_STR//$'\n'}~" "${OUT}" > ${FILE}
+sed "s~{{ SCRIPTS }}~${OUT_STR//$'\n'}~" "${TEMPLATE}" > "${FILE}"

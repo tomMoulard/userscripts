@@ -1,0 +1,43 @@
+{
+    "name": "Add button to change to daily pull requests",
+    "options": {
+        "check_for_updates": false,
+        "comment": null,
+        "compatopts_for_requires": true,
+        "compat_wrappedjsobject": false,
+        "compat_metadata": false,
+        "compat_foreach": false,
+        "compat_prototypes": false,
+        "noframes": null,
+        "run_at": null,
+        "override": {
+            "merge_connects": true,
+            "merge_excludes": true,
+            "merge_includes": true,
+            "merge_matches": false,
+            "orig_connects": [],
+            "orig_excludes": [],
+            "orig_includes": [],
+            "orig_matches": [
+                "https://github.com/traefik/traefik/issues?q=is%3Aissue+sort%3Aupdated-desc+-label%3Astatus%2F5-frozen-due-to-age+updated%3A%3E%3D%E2%80%9D+(new%20Date(Date.now()%20-%20864e5)).toISOString().slice(0,10)+%E2%80%9CT16%3A00%3A00"
+            ],
+            "orig_noframes": null,
+            "orig_run_at": "document-idle",
+            "use_blockers": [],
+            "use_connects": [],
+            "use_excludes": [],
+            "use_includes": [],
+            "use_matches": [
+                "https://github.com/*/*/pulls"
+            ]
+        }
+    },
+    "storage": {
+        "ts": 1613578392015,
+        "data": {}
+    },
+    "enabled": true,
+    "position": 2,
+    "uuid": "ba2c7444-0e36-4db4-9a9c-9e8c63b8caa0",
+    "source": "{{ SOURCE }}"
+}

@@ -1,0 +1,41 @@
+{
+    "name": "PR listing using markdown format",
+    "options": {
+        "check_for_updates": false,
+        "comment": null,
+        "compatopts_for_requires": true,
+        "compat_wrappedjsobject": false,
+        "compat_metadata": false,
+        "compat_foreach": false,
+        "compat_prototypes": false,
+        "noframes": null,
+        "run_at": null,
+        "override": {
+            "merge_connects": true,
+            "merge_excludes": true,
+            "merge_includes": true,
+            "merge_matches": true,
+            "orig_connects": [],
+            "orig_excludes": [],
+            "orig_includes": [],
+            "orig_matches": [
+                "https://github.com/*/*/pulls*"
+            ],
+            "orig_noframes": null,
+            "orig_run_at": "document-idle",
+            "use_blockers": [],
+            "use_connects": [],
+            "use_excludes": [],
+            "use_includes": [],
+            "use_matches": []
+        }
+    },
+    "storage": {
+        "ts": 1613724265706,
+        "data": {}
+    },
+    "enabled": true,
+    "position": 4,
+    "uuid": "eb3b27c6-b5cd-4e9b-a181-de05f55d835c",
+    "source": "{{ SOURCE }}"
+}

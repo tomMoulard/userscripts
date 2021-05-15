@@ -1,12 +1,23 @@
 #!/bin/bash
 
-set -x
-
 FILE=./out.json
 SCRIPTS=./scripts
-USERSCRIPTS=($(find ${SCRIPTS} -type f -name *.js | sort -u))
-JSONS=($(find ${SCRIPTS} -type f -name *.json | sort -u))
+OUT=./template.json
+declare -a USERSCRIPTS=($(find ${SCRIPTS} -type f -name '*.js' | sort -u))
+declare -a JSONS=($(find ${SCRIPTS} -type f -name '*.json' | sort -u))
 
-echo -e '{"created_by": "tm", "version": "1", "scripts": [' > ${FILE}
+# Get and fill each json with corresponding js code
+declare -a OUT_JSON=()
+for ((i = 0; i < ${#JSONS[@]}; i++)); do
+    OUT_JSON+=("$(sed -e "s,{{ SOURCE }},$(base64 "${USERSCRIPTS[i]}" -w 0),g" "${JSONS[i]}")")
+done
 
-echo $USERSCRIPTS
+# Concatenate scripts jsons
+OUT_STR=""
+for ((i = 0; i < ${#OUT_JSON[@]} - 1; i++)); do
+    OUT_STR+="${OUT_JSON[i]},"
+done
+OUT_STR+="${OUT_JSON[-1]}"
+
+# Exporting to file
+sed "s~{{ SCRIPTS }}~${OUT_STR//$'\n'}~" "${OUT}" > ${FILE}

@@ -1,0 +1,56 @@
+{
+    "created_by": "tm",
+    "version": "1",
+    "scripts": [
+        {{ SCRIPTS }}
+    ],
+    "settings": {
+        "configMode": 100,
+        "favicon_service": "google",
+        "layout": "default#dark",
+        "layout_user_css": "",
+        "notification_showUpdate": "changelog",
+        "scriptUrlDetection": "auto",
+        "script_blacklist_server": [
+            {
+                "rules": [
+                    "/https?:\\/\\/userscripts\\.org\\/scripts\\/(source|version)/(102614).*\\.user\\.js/"
+                ],
+                "severity": "2"
+            },
+            {
+                "name": "SaveFrom.net helper",
+                "reason": "Shows advertisements",
+                "rules": [
+                    "/https?:\\/\\/sf-addon\\.com\\/.*\\/.*\\.user\\.js/",
+                    "/https?:\\/\\/.*\\.sf-helper\\.com\\/.*\\.user\\.js/"
+                ],
+                "severity": "3"
+            },
+            {
+                "reasons": {
+                    "en": "Used for a phishing compain to compromise users of baon-nutrition.com"
+                },
+                "rules": [
+                    "/https?:\\/\\/files\\.ulysse\\.travel\\/.*\\.user\\.js/"
+                ],
+                "severity": "8"
+            }
+        ],
+        "script_templates": [
+            {
+                "name": "ECMAScript 5",
+                "value": "// ==UserScript==\n// @name         New Userscript\n// @namespace    http://tom.moulard.org/\n// @version      0.1\n// @description  try to take over the world!\n// @author       Tom Moulard\n// @match        <$URL$>\n// @grant        none\n// ==/UserScript==\n\n(function() {\n    'use strict';\n\n    // Your code here...\n})();"
+            },
+            {
+                "name": "ECMAScript 6",
+                "value": "// ==UserScript==\n// @name         New ES6-Userscript\n// @namespace    http://tom.moulard.org/\n// @version      0.1\n// @description  shows how to use babel compiler\n// @author       Tom Moulard\n// @require      https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.18.2/babel.js\n// @require      https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.16.0/polyfill.js\n// @match        <$URL$>\n// ==/UserScript==\n\nvar inline_src = (<><![CDATA[\n\n    // Your code here...\n\n]]></>).toString();\nvar c = Babel.transform(inline_src, { presets: [ \"es2015\", \"es2016\" ] });\neval(c.code);"
+            },
+            {
+                "name": "CoffeeScript",
+                "value": "// ==UserScript==\n// @name         New Coffee-Userscript\n// @namespace    http://tom.moulard.org/\n// @version      0.1\n// @description  shows how to use coffeescript compiler\n// @author       Tom Moulard\n// @require      http://coffeescript.org/browser-compiler/coffeescript.js\n// @match        <$URL$>\n// ==/UserScript==\n\nvar inline_src = (<><![CDATA[\n\n    // Your code here\n\n]]></>).toString();\nvar compiled = this.CoffeeScript.compile(inline_src);\neval(compiled);"
+            }
+        ],
+        "statistics_enabled": false
+    }
+}

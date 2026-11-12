@@ -1,0 +1,35 @@
+@-moz-document domain("linear.app") {
+/* issue page */
+[data-restore-scroll-view="issue-view"] {
+    grid-template-columns: 24px minmax(0, 1fr) minmax(0, clamp(280px, 26.087cqw + 66.087px, 400px)) 24px !important;
+}
+[data-restore-scroll-view="issue-view"] .ProseMirror > :not(.tableContainer, .collapsible-section) {
+    max-width: 800px;
+}
+}
+
+@-moz-document domain("linear.app") {
+/* project overview */
+[data-restore-scroll-view="project-overview"] > div {
+    grid-template-columns: 24px minmax(0, 1fr) 24px !important;
+}
+[data-restore-scroll-view="project-overview"] > div > *,
+[data-restore-scroll-view="project-overview"] > div > * > * {
+    max-width: none !important;
+}
+}
+
+@-moz-document domain("linear.app") {
+/* project activity */
+[data-restore-scroll-view^="activity-sidebar-"] > *,
+[data-activity-item] {
+    max-width: none !important;
+}
+}
+
+@-moz-document domain("linear.app") {
+/* project customers */
+main [data-vertical-scroll-container]:not([data-loading-caret]):not([data-restore-scroll-view]) > div {
+    max-width: none !important;
+}
+}

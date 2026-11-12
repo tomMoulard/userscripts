@@ -1,10 +1,7 @@
 @-moz-document domain("linear.app") {
 /* issue page */
 [data-restore-scroll-view="issue-view"] {
-    grid-template-columns: 24px minmax(0, 1fr) minmax(0, clamp(280px, 26.087cqw + 66.087px, 400px)) 24px !important;
-}
-[data-restore-scroll-view="issue-view"] .ProseMirror > :not(.tableContainer, .collapsible-section) {
-    max-width: 800px;
+	grid-template-columns: 24px minmax(0, 1fr) minmax(0, clamp(280px, 26.087cqw + 66.087px, 400px)) 24px !important;
 }
 }
 

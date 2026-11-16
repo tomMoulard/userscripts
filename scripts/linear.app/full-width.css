@@ -30,3 +30,10 @@ main [data-vertical-scroll-container]:not([data-loading-caret]):not([data-restor
     max-width: none !important;
 }
 }
+
+@-moz-document domain("linear.app") {
+/* release notes */
+[data-restore-scroll-view^="release-notes-"] > div > div {
+  max-width: none !important;
+}
+}
